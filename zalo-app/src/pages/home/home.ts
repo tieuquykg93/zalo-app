@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
+import {TabsPage} from '../tabs/tabs'
 
 @Component({
   selector: 'page-home',
@@ -22,7 +23,7 @@ username: string='';
   }
   Login(){
     if(/^[a-zA-Z0-9]+$/.test(this.username)){
-      //tot
+      this.navCtrl.push(TabsPage, {username: this.username});
     }else{
       this.presentAlert('Lỗi','ID không hợp lệ');
     }
