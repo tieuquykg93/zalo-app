@@ -1,24 +1,24 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      ZaloFake Chat App
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-    <ion-list>
-
+<ion-content padding class="background">
+  <ion-card>
+    <ion-card-header>
+      ZaloFake
+    </ion-card-header>
+  </ion-card>
+    <ion-list no-lines>
+<div class="spacer" style="height: 10px;"></div>
         <ion-item>
           <ion-label floating >Tên Đăng Nhập</ion-label>
           <ion-input type="text" [(ngModel)]="username"></ion-input>
         </ion-item>
-      
+        <div class="spacer" style="height: 5px;"></div>
         <ion-item>
           <ion-label floating>Mật Khẩu</ion-label>
           <ion-input type="password"></ion-input>
         </ion-item>
+        <div class="spacer" style="height: 10px;"></div>
         <br>  
-        <button ion-button full (click)="Login()"><b>Đăng Nhập</b></button>
+        <button ion-button block round color="light" (click)="Login()"><b>Đăng Nhập</b></button>
+        <p>Bạn chưa có tài khoản?</p>
+        <button ion-button block round outline color="light" (click)="SignUp()"><b>Đăng Ký</b></button>
       </ion-list>
 </ion-content>

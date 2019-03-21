@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs'
+import { usercreds } from '../../models/interfaces/usercreds';
+import { SignupPage } from '../signup/signup';
+import { ChatsPage } from '../chats/chats';
 
 @Component({
   selector: 'page-home',
@@ -8,7 +11,7 @@ import {TabsPage} from '../tabs/tabs'
 })
 export class HomePage {
 
-username: string='';
+username: string = '';
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
 
@@ -23,9 +26,13 @@ username: string='';
   }
   Login(){
     if(/^[a-zA-Z0-9]+$/.test(this.username)){
-      this.navCtrl.push(TabsPage, {username: this.username});
+      this.navCtrl.push(TabsPage, {
+        username: this.username});
     }else{
       this.presentAlert('Lỗi','ID không hợp lệ');
     }
+  }
+  SignUp(){
+    this.navCtrl.push(SignupPage);
   }
 }
