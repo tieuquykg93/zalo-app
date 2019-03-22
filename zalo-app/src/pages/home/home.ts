@@ -1,36 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, NavParams } from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs'
 import { usercreds } from '../../models/interfaces/usercreds';
 import { SignupPage } from '../signup/signup';
 import { ChatsPage } from '../chats/chats';
+import { AuthProvider } from '../../providers/auth/auth'
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  credentials = {} as usercreds;
 
-username: string = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authservice: AuthProvider,)  {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
-
-  }
-  presentAlert(title: string, message: string) {
-    let alert = this.alertCtrl.create({
-      title: title ,
-      subTitle:message,
-      buttons: ['OK']
-    });
-    alert.present();
   }
   Login(){
-    if(/^[a-zA-Z0-9]+$/.test(this.username)){
-      this.navCtrl.push(TabsPage, {
-        username: this.username});
-    }else{
-      this.presentAlert('Lỗi','ID không hợp lệ');
-    }
+    this.authservice.login(this.credentials).then((res: any) => {
+      if (!res.code)
+        this.navCtrl.setRoot(TabsPage);
+      else
+        alert(res);
+    })
   }
   SignUp(){
     this.navCtrl.push(SignupPage);

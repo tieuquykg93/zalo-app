@@ -8,12 +8,12 @@
 <div class="spacer" style="height: 10px;"></div>
         <ion-item>
           <ion-label floating >Tên Đăng Nhập</ion-label>
-          <ion-input type="text" [(ngModel)]="username"></ion-input>
+          <ion-input type="email" [(ngModel)]="credentials.email"></ion-input>
         </ion-item>
         <div class="spacer" style="height: 5px;"></div>
         <ion-item>
           <ion-label floating>Mật Khẩu</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
         </ion-item>
         <div class="spacer" style="height: 10px;"></div>
         <br>  

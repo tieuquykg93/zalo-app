@@ -15,14 +15,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
-  username: string = '';
-  tab1: string="ChatsPage";
-  tab2: string="GroupsPage";
-  tab3: string="ProfilePage";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.username = this.navParams.get('username');
-    this.navCtrl.push(ChatsPage, {
-      username: this.username});
+ 
+  tab1: string = "ChatsPage";
+  tab2: string = "GroupsPage";
+  tab3: string = "ProfilePage";
+ 
+  constructor() {
   }
-
+ 
 }
+// export class TabsPage {
+//   username: string = '';
+//   tab1: string="ChatsPage";
+//   tab2: string="GroupsPage";
+//   tab3: string="ProfilePage";
+//   constructor(public navCtrl: NavController, public navParams: NavParams) {
+//     this.username = this.navParams.get('username');
+//     this.navCtrl.push(ChatsPage, {
+//       username: this.username});
+//   }
+
+// }

@@ -21,7 +21,7 @@ import { UserProvider } from '../providers/user/user';
     MyApp,
     HomePage,
     TabsPage,
-    SignupPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -35,6 +35,7 @@ import { UserProvider } from '../providers/user/user';
     HomePage,
     TabsPage,
     SignupPage
+
   ],
   providers: [
     StatusBar,

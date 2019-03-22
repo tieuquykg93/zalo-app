@@ -18,12 +18,11 @@ export class UserProvider {
     var promise = new Promise((resolve, reject) => {
       this.afireauth.auth.createUserWithEmailAndPassword(newuser.email, newuser.password).then(() => {
         this.afireauth.auth.currentUser.updateProfile({
-          displayName: newuser.displayName,
-          photoURL: ''
+          displayName: newuser.email
         }).then(() => {
           this.firedata.child(this.afireauth.auth.currentUser.uid).set({
             uid: this.afireauth.auth.currentUser.uid,
-            displayName: newuser.displayName,
+            displayName: newuser.email,
             photoURL: 'https://kevilax.files.wordpress.com/2011/08/1412.png'
           }).then(() => {
             resolve({ success: true });

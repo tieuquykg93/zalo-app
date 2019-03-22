@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 
 /**
  * Generated class for the ChatsPage page.
@@ -20,12 +21,17 @@ export class ChatsPage {
   _chatSubscription;
   messages: object[] = [];
 
+  
   constructor(public db: AngularFireDatabase,
     public navCtrl: NavController, public navParams: NavParams) {
     this.username = this.navParams.get('username');
+    // this._chatSubscription = this.db.list('/chat').valueChanges().subscribe( data => {
+    //   this.messages = data;
+    // });
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad ChatPage');
   }
   sendMessage() {
     this.db.list('/chat').push({
