@@ -5,27 +5,50 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+
   <ion-navbar color="tcolor">
     <ion-title>Chats</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addbuddy()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons> 
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-    <div id="chatMessages">
-        <div *ngFor="let message of messages" [class]="message.specialMessage ? 'message special' : 'message'">
-          <div [class]="message.username == username ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
-            <div class="username">{{ message.username }}</div>
-            <div class="messageContent">{{ message.message }}</div>
-          </div>
-        </div>
-      </div>
-    
+<ion-list no-lines>
+  <ion-list-header>
+    Yêu Cầu Kết Bạn
+  </ion-list-header>
+  <ion-item-sliding *ngFor="let item of myrequests">
+    <ion-item>
+    <ion-avatar item-left>
+      <img src="{{item.photoURL}}">
+    </ion-avatar>
+    <h4>{{item.displayName}}</h4>
+    </ion-item>
+    <ion-item-options>
+      <button ion-button color="secondary" (click)="accept(item)">
+        <ion-icon name="checkmark"></ion-icon>
+        ADD
+      </button>
+      <button ion-button color="danger" (click)="ignore(item)">
+        <ion-icon name="trash"></ion-icon>
+        NOPE
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+  <ion-list-header>
+    Bạn bè
+  </ion-list-header>
+  <ion-item *ngFor="let item of myfriends" (click)="buddychat(item)">
+    <ion-avatar item-left>
+      <img src={{item.photoURL}}>
+    </ion-avatar>
+    <h3>{{item.displayName}}</h3>
+  </ion-item>
+</ion-list>
 </ion-content>
-<ion-footer>
-    <ion-toolbar>
-      <div id="footer">
-        <div class="elem"><ion-input type="text" [(ngModel)]="message"></ion-input></div>
-        <div class="elem"><button ion-button icon-only (click)="sendMessage()"><ion-icon name="send"></ion-icon> </button></div>
-      </div>
-    </ion-toolbar>
-  </ion-footer>

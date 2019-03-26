@@ -6,10 +6,16 @@
 -->
 <ion-header>
   <ion-navbar color="tcolor">
-    <ion-title>Profile</ion-title>
+    <ion-title>Thông Tin Cá Nhân</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <div class="profile-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Kaito_Kid_signature.svg/180px-Kaito_Kid_signature.svg.png">
+  </div>
+  <div>
+    <h2>{{displayName}}</h2>
+    <button ion-button round outline color="danger" (click)="logout()">Logout</button>
+  </div>
 </ion-content>
